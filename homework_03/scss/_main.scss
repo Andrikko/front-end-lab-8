@@ -4,37 +4,38 @@
 }
 body{ 
     background-color: $contentBackground;
-
     #content{
         width: 70%;
+        height: auto;
         margin: auto;
         background-color:$Background;
         padding: 20px 20px;
         margin-top: 10px;
         
-        h1,h2{color: #893c00;}
-        p{padding-bottom: 15px;}
+        h1,h2{color: $border_h2_Color;}
+        p{
+            padding-bottom: 15px;
+            color: $mainText_color;
+        }
         
         h1{
             width: fit-content;
             margin: auto;
             padding-bottom: 20px;
         }
-        
+        a{color: $btn_link_Border;}
         h2{padding-bottom: 15px;}
         h2+p{float: right;}
         
         .img-left{
             float: left;
             margin: 0px 15px 0px 0px;
-            border: 2px solid $borderColor;
-            padding: 2px;
+            @include img;
         }
         .img-right{
             float: right;
             margin: 0px 0px 0px 15px;
-            border: 2px solid $borderColor;
-            padding: 2px;
+            @include img;
         }
         .brief{
             background-color: $forBrief;
@@ -45,17 +46,56 @@ body{
         }
         table{
             width: 95%;
+            padding-bottom: 45px;
             th{
                 background-color: $tableBack;
                 text-align: left;
-//                padding: 10px 15px; 
                 font-weight: 100;
                 font-size: 1.1em;
+                text-transform: uppercase;
             }
             
             *{padding: 10px 15px; }
-            td{border-bottom: 1px solid $tableBack;}
-            
+            td{
+                border-bottom: 1px solid $tableBack;
+                font-size: 15px;
+                background-color: $td_item;
+                a{
+                    color: $btn_link_Border;
+                    padding: 0;
+                }
+            }
+        }
+
+        .feedback {
+            p {
+                text-transform: uppercase;
+                padding-bottom: 5px;
+                color: $p_color;
+            }
+            .p_btt{padding-bottom: 20px;}
+            .Name {
+                display: flex;
+                .name_sname {
+                    width: 50%;
+                    @include inp_l;
+                }
+            }
+            .email,.value,.wrFeedBack{@include inp_s;}
+            .btn{
+                width: 28%;
+                padding: 7px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 1.1em;
+                color: $btn_link_Border;
+                background-color: $Background;
+                border: 1px solid $btn_link_Border;
+                
+                &:hover{
+                    background-color:dimgrey;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

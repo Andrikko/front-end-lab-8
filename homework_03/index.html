@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>Epam Front End Lab. Preprocessors</title>
-  <link rel="stylesheet" type="text/css" href="css/style1.css">
-  <!--<link rel="stylesheet" type="text/css" href="css/style2.css">-->
+<!--  <link rel="stylesheet" type="text/css" href="css/style1.css">-->
+  <link rel="stylesheet" type="text/css" href="css/style2.css">
 </head>
 
 <body>
@@ -122,8 +122,31 @@
     <h2>Бібліотеки Львова</h2>
     <p>Серед відомих бібліотек Львова — Бібліотека Львівського університету, Міська центральна бібліотека імені Лесі Українки,
       Центральна міська дитяча бібліотека, Обласна бібліотека для дітей, Обласна бібліотека для юнацтва та інші.</p>
-    <div>
-       <!--TODO write form fields-->
+    <div class='feedback'>
+       <h2>Залишити відгук</h2>
+       <div class="Name p_btt">
+           <div class="name_sname">
+               <p>Ім'я</p>
+               <input type="text" placeholder="Введіть ім'я">
+           </div>
+           <div class="name_sname">
+               <p>Прізвище</p>
+               <input type="text" placeholder="Введіть прізвище">
+           </div>
+       </div>
+       <div class="email p_btt">
+           <p>Емейл</p>
+           <input type="email " placeholder="Введіть імейл">
+       </div>
+       <div class="value p_btt">
+           <p>Оцініть</p>
+           <input type="text">
+       </div>
+       <div class="wrFeedBack p_btt">
+           <p>Напишіть відгук</p>
+           <textarea name="txarea" cols='130' rows="10" placeholder="Залишіть відгук"></textarea>
+       </div>
+       <button class='btn'>НАДІСЛАТИ</button>
     </div>
   </div>
 </body>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 * {
   margin: 0;
   padding: 0; }
@@ -6,6 +7,7 @@ body {
   background-color: #dcbb9a; }
   body #content {
     width: 70%;
+    height: auto;
     margin: auto;
     background-color: #ffffff;
     padding: 20px 20px;
@@ -13,7 +15,8 @@ body {
     body #content h1, body #content h2 {
       color: #893c00; }
     body #content p {
-      padding-bottom: 15px; }
+      padding-bottom: 15px;
+      color: #000000; }
     body #content h1 {
       width: fit-content;
       margin: auto;
@@ -25,13 +28,13 @@ body {
     body #content .img-left {
       float: left;
       margin: 0px 15px 0px 0px;
-      border: 2px solid #893c00;
-      padding: 2px; }
+      padding: 2px;
+      border: 2px solid #893c00; }
     body #content .img-right {
       float: right;
       margin: 0px 0px 0px 15px;
-      border: 2px solid #893c00;
-      padding: 2px; }
+      padding: 2px;
+      border: 2px solid #893c00; }
     body #content .brief {
       background-color: #fadcba;
       width: 375px;
@@ -39,13 +42,45 @@ body {
       float: left;
       margin: 0px 15px 0px 0px; }
     body #content table {
-      width: 95%; }
+      width: 95%;
+      padding-bottom: 45px; }
       body #content table th {
         background-color: #e0e0e0;
         text-align: left;
         font-weight: 100;
-        font-size: 1.1em; }
+        font-size: 1.1em;
+        text-transform: uppercase; }
       body #content table * {
         padding: 10px 15px; }
       body #content table td {
-        border-bottom: 1px solid #e0e0e0; }
+        border-bottom: 1px solid #e0e0e0;
+        font-size: 15px; }
+    body #content .feedback p {
+      text-transform: uppercase;
+      padding-bottom: 5px;
+      color: #808080; }
+    body #content .feedback .p_btt {
+      padding-bottom: 20px; }
+    body #content .feedback .Name {
+      display: flex; }
+      body #content .feedback .Name .name_sname {
+        width: 50%; }
+        body #content .feedback .Name .name_sname input {
+          width: 95.5%;
+          padding: 4px; }
+    body #content .feedback .email input, body #content .feedback .email textarea, body #content .feedback .value input, body #content .feedback .value textarea, body #content .feedback .wrFeedBack input, body #content .feedback .wrFeedBack textarea {
+      width: 97.5%;
+      padding: 4px; }
+    body #content .feedback .btn {
+      width: 28%;
+      padding: 7px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.1em;
+      color: #3d70a1;
+      background-color: white;
+      border: 1px solid #3d70a1; }
+      body #content .feedback .btn:hover {
+        background-color: aliceblue;
+        cursor: pointer; }
+
+/*# sourceMappingURL=style1.css.map */

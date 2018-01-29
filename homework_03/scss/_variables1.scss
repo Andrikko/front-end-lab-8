@@ -1,14 +1,28 @@
-//#dcbb9a;
-//#fadcba;
-//#ffffff 
-//#893c00;
-//#000000 
-//#3d70a1;
-//#e0e0e0;
-//#808080;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 $Background: #ffffff;
 $contentBackground: #dcbb9a;
-$borderColor: #893c00;
+$border_h2_Color: #893c00;
 $forBrief: #fadcba;
 $tableBack: #e0e0e0;
+$btn_link_Border: #3d70a1;
+$mainText_color: #000000;
+$p_color: #808080;
+$td_item: white;
+
+@mixin img{
+    padding: 2px;
+    border: 2px solid $border_h2_Color;
+}
+@mixin inp_l {
+    input {
+        width: 95.5%;
+        padding: 4px;
+    }
+}
+@mixin inp_s {
+    input,textarea {
+        width: 97.5%;
+        padding: 4px;
+    }
+}
