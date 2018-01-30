@@ -1,28 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-$Background: #ffffff;
-$contentBackground: #dcbb9a;
+$content_back: #ffffff;
+$Background: #dcbb9a;
 $border_h2_Color: #893c00;
 $forBrief: #fadcba;
 $tableBack: #e0e0e0;
 $btn_link_Border: #3d70a1;
 $mainText_color: #000000;
-$p_color: #808080;
+$input_text_color: #808080;
 $td_item: white;
 
-@mixin img{
+@mixin img {
     padding: 2px;
     border: 2px solid $border_h2_Color;
 }
+
 @mixin inp_l {
     input {
         width: 95.5%;
         padding: 4px;
     }
 }
+
 @mixin inp_s {
-    input,textarea {
+    input,
+    textarea {
         width: 97.5%;
         padding: 4px;
+    }
+}
+
+@mixin brief {
+    .brief {
+        background-color: $forBrief;
+        width: 375px;
+        padding: 21px;
+        float: left;
+        margin: 0px 15px 0px 0px;
     }
 }
