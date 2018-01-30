@@ -1,37 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-//rgba(198, 238, 252, 0.53);
-//#fff178;
-//#3c3b3c;
-//#fccd10;
-//#94a34e;
-//#677d01;
-//#f5c70f;
-
-
-$Background: #3b3b3b; //#ffffff;
-$contentBackground: rgba(198, 238, 252, 0.53); //#dcbb9a;
-$border_h2_Color: #fccd10;   //#893c00;
-$forBrief: #fff178; //#fadcba;
+$content_back: #3c3b3c;
+$Background: rgba(198,238,252,0.53);
+$border_h2_Color: #f5c70f;
+$forBrief: #fff178;
 $tableBack: #94a34e;
+$btn_link_Border: #fccd10;
+$mainText_color: #ffffff;
+$input_text_color: #fccd10;
 $td_item: #677d01;
-$btn_link_Border: #f5c70f;
-$mainText_color: white; //#000000;
-$p_color: #808080;
 
-@mixin img{
+@mixin img {
     padding: 2px;
     border: 2px solid $border_h2_Color;
 }
+
 @mixin inp_l {
     input {
         width: 95.5%;
         padding: 4px;
     }
 }
+
 @mixin inp_s {
-    input,textarea {
+    input,
+    textarea {
         width: 97.5%;
         padding: 4px;
+    }
+}
+
+@mixin brief{
+    .brief {
+        background-color: $forBrief;
+        width: 95.5%;
+        padding: 21px;
+        float: left;
+        margin: 0px 15px 25px 0px;
     }
 }
