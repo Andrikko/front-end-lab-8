@@ -4,7 +4,8 @@ window.onload = function () {
     var b = +prompt('Type b:');
     var c = +prompt('Type c:');
 
-    var max,one,two,square = 0;
+    var max,one,two,square,half_per = 0;
+    var typeTriangle = '';
 
 
     function check(){
@@ -16,7 +17,8 @@ window.onload = function () {
     function getType(){
         if(check()){
            if(a===b && b===c){
-               console.log('Type: Equilateral');
+               typeTriangle = 'Type: Equilateral'; 
+               square = ((a*a)*Math.sqrt(3))/4;
            }
            if(a!==b && b!==c && a!==c){
                if(a>b){
@@ -44,34 +46,34 @@ window.onload = function () {
                    }
                }
                if(max*max === (one*one)+(two*two)){
-                   console.log('Type: Right triangle');
+                   typeTriangle = 'Type: Right triangle'; 
                    square = (one*two)/2;
-                   console.log("Square = "+square);
                }
                else{
-                   console.log('Type: Scalene');
+                   typeTriangle = 'Type: Scalene'; 
+                   half_per = (a + b + c)/2;
+                   square = Math.sqrt(half_per*(half_per-a)*(half_per-b)*(half_per-c));
                }
            }
-           if(a===b || a===c || b===c){
-            console.log('Type: Isosceles');
-            if(a===b){
-                square = (c/4)*Math.sqrt((4*(a*a)) - (c*c));
-                console.log('Square = '+square);
-            }
-            else if(b===c){
-                square = (a/4)*Math.sqrt((4*(b*b)) - (a*a));
-                console.log('Square = '+square);
-            }
-            else if(a===c){
-                square = (b/4)*Math.sqrt((4*(a*a)) - (b*b));
-                console.log('Square = '+square);
-            }
+           if(a===b && a!==c || a===c && a!==b || b===c && b!==a){
+            typeTriangle = 'Type: Isosceles'; 
+            if(a===b){square = (c/4)*Math.sqrt((4*(a*a)) - (c*c));}
+            else if(b===c){square = (a/4)*Math.sqrt((4*(b*b)) - (a*a));}
+            else if(a===c){square = (b/4)*Math.sqrt((4*(a*a)) - (b*b));}
            }
         }
-        else{
-            console.log('error');
-        }
+        else{console.log('error');}
+        return square,typeTriangle;
     }
 
-    getType();
+    function calc(){
+        getType();
+        square = square.toFixed(2);
+        alert(typeTriangle);
+        alert('Square = '+ square);
+
+        document.getElementById('result').innerHTML = typeTriangle + '<br>' + 'Square = '+ square ;
+    }
+
+    calc();
 }
