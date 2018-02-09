@@ -1,11 +1,15 @@
 window.onload = function () {
     
-    var a = +prompt('Type a:');
-    var b = +prompt('Type b:');
-    var c = +prompt('Type c:');
+    var a = prompt('Type a:');
+    var b = prompt('Type b:');
+    var c = prompt('Type c:');
+    
+    a = parseFloat(a);
+    b = parseFloat(b);
+    c = parseFloat(c);
 
     var max,one,two,square,half_per = 0;
-    var typeTriangle = '';
+    var typeTriangle = "";
 
 
     function check(){
@@ -62,7 +66,7 @@ window.onload = function () {
             else if(a===c){square = (b/4)*Math.sqrt((4*(a*a)) - (b*b));}
            }
         }
-        else{console.log('error');}
+        else{console.log('Incorrect data');}
         return square,typeTriangle;
     }
 
@@ -71,8 +75,6 @@ window.onload = function () {
         square = square.toFixed(2);
         console.log(typeTriangle);
         console.log('Square = '+ square);
-
-        document.getElementById('result').innerHTML = typeTriangle + '<br>' + 'Square = '+ square ;
     }
 
     calc();
