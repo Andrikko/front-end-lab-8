@@ -13,11 +13,10 @@ window.onload = function(){
             newA = one * eu_hr;
             eu_dol = eu_hr/dol_hr;
         }
-
         return newA,newB,eu_dol;
     }
 
-    function final(){
+    function output(){
         converter(a,b);
         newA = newA.toFixed(2);
         newB = newB.toFixed(2);
@@ -27,5 +26,5 @@ window.onload = function(){
         newB + ' UAH, one euro is equal '+ eu_dol +' dollars');
     }
 
-    final();
+    output();
 }
