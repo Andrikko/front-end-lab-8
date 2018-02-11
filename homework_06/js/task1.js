@@ -8,74 +8,39 @@ window.onload = function () {
     b = parseFloat(b);
     c = parseFloat(c);
 
-    var max,one,two,square,half_per = 0;
-    var typeTriangle = "";
+    var square,typeTriangle;
 
-
-    function check(){
-        if(a>=0 && b>=0 && c>=0){
-            return true;
-        }
+    if(a+b>c && a+c>b && b+c>a){
+        calc();
+    }else{
+        console.log('Incorrect data')
     }
 
-    function getType(){
-        if(check()){
-           if(a!==b && b!==c && a!==c){
-               if(a>b){
-                   if(a>c){
-                       max = a;
-                       one = b;
-                       two = c;
-                   }
-                   else if(c>a){
-                       max = c;
-                       one = a;
-                       two = b;
-                   }
-               }
-               else{
-                   if(b>c){
-                       max = b;
-                       one = c;
-                       two = a;
-                   }
-                   else if(c>b){
-                       max = c;
-                       one = b;
-                       two = a;
-                   }
-               }
-               if(max*max === (one*one)+(two*two)){
-                   typeTriangle = 'Type: Right triangle'; 
-                   square = (one*two)/2;
-               }
-               else{
-                   typeTriangle = 'Type: Scalene'; 
-                   half_per = (a + b + c)/2;
-                   square = Math.sqrt(half_per*(half_per-a)*(half_per-b)*(half_per-c));
-               }
-           }
-           if(a===b && b===c){
-                typeTriangle = 'Type: Equilateral'; 
-                square = ((a*a)*Math.sqrt(3))/4;
-            }
-           if(a===b && a!==c || a===c && a!==b || b===c && b!==a){
-            typeTriangle = 'Type: Isosceles'; 
-            if(a===b){square = (c/4)*Math.sqrt((4*(a*a)) - (c*c));}
-            else if(b===c){square = (a/4)*Math.sqrt((4*(b*b)) - (a*a));}
-            else if(a===c){square = (b/4)*Math.sqrt((4*(a*a)) - (b*b));}
-           }
+
+function getType(){
+    if(a!==b && b!==c && a!==c){
+        if((a*a+b*b==c*c) || (a*a+c*c==b*b) || (b*b+c*c==a*a)){
+            typeTriangle = 'Right triangle';
         }
-        else{console.log('Incorrect data');}
-        return square,typeTriangle;
+        else{
+            typeTriangle = 'Scalene';
+        }
     }
+    if(a==b && b==c){
+        typeTriangle = "Equilateral";
+    }
+    if(a===b && a!==c || a===c && a!==b || b===c && b!==a){
+        typeTriangle = 'Isosceles';
+    }
+    return typeTriangle;
+}
 
     function calc(){
         getType();
-        square = square.toFixed(2);
-        console.log(typeTriangle);
+        p = (a+b+c)/2;
+        square = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+        square = Math.floor(square * 100)/100;
+        console.log('Type: '+typeTriangle);
         console.log('Square = '+ square);
     }
-
-    calc();
 }
