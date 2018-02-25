@@ -34,23 +34,39 @@ function showResult(fighter) {
 
 function fighter( fighter ){
 
-  let stats = fighter;
-  let CombatHistory = { wins: 0, loses: 0};
+  //let Stats = fighter;
+  //let CombatHistory = { wins: 0, loses: 0};
 
   return {
-    getName: function() {
-      return stats.name;
+    CombatHistory: {
+      wins: 0,
+      loses: 0
     },
-    getCombatHistory: function() {
-      return CombatHistory;
+    Stats: {
+      name : fighter.name,
+      attack : fighter.attack,
+      hp : fighter.hp,
+    },
+    getCombatHistory: function () {
+      return {
+          wins:  this.CombatHistory.wins,
+          loses:  this.CombatHistory.loses
+      }
+  },
+    getName: function() {
+      return this.name;
     },
     getStats: function() {
-      return stats;
-    },
+      return {
+          name: this.Stats.name,
+          attack:  this.Stats.attack,
+          hp:  this.Stats.hp
+      }
+  },
     block: function(){
-      console.log(Math.random() < 0.5);
       return Math.random() < 0.5;
     }
+
   }
 }
 
@@ -60,11 +76,11 @@ function fighter( fighter ){
  */ 
 
  var fighter1 = fighter({name: 'John', attack: 100, hp: 100});
- // var fighter2 = fighter({name: 'Kayn', attack: 50, hp: 300});
+ //var fighter2 = fighter({name: 'Kayn', attack: 50, hp: 300});
  //var fighter3 = fighter({name: 'Bill', attack: 40, hp: 100}); 
 
-// fighter1.fight(fighter2); // true, fighter 1 make damage to fighter 2
-// fighter1.fight(fighter3); // true, fighter 1 make damage to fighter 3
+ //fighter1.fight(fighter2); // true, fighter 1 make damage to fighter 2
+ //fighter1.fight(fighter3); // true, fighter 1 make damage to fighter 3
 
 // /**
 //  * Fighter John
@@ -77,11 +93,11 @@ function fighter( fighter ){
 //  * - Combat stats: { wins: 0, loses: 0 }
 //  * - Properties: { name: 'Kayn', attack: 50, hp: 200 }
 //  */
-// showResult(fighter2); 
+ //showResult(fighter2); 
 
 // /**
 //  * Fighter Bill
 //  * - Combat stats: { wins: 0, loses: 1 }
 //  * - Properties: { name: 'Bill', attack: 40, hp: 0 }
 //  */
-// showResult(fighter3);
+ //showResult(fighter3);
