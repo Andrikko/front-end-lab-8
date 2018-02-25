@@ -25,24 +25,43 @@
  * @param {Fighter} fighter - The fighter
  * DO NOT MODIFY
  */
+
 function showResult(fighter) {
   console.log('Fighter', fighter.getName());
   console.log('- Combat stats:', fighter.getCombatHistory());
   console.log('- Properties:', fighter.getStats());
 }
 
-/**
- * Your code goes here
- * function foo() { ... }
- */
+function fighter( fighter ){
+
+  let stats = fighter;
+  let CombatHistory = { wins: 0, loses: 0};
+
+  return {
+    getName: function() {
+      return stats.name;
+    },
+    getCombatHistory: function() {
+      return CombatHistory;
+    },
+    getStats: function() {
+      return stats;
+    },
+    block: function(){
+      console.log(Math.random() < 0.5);
+      return Math.random() < 0.5;
+    }
+  }
+}
+
 
 /**
  * The following code must be valid after implementation!
  */ 
 
-// var fighter1 = fighter({name: 'John', attack: 100, hp: 100});
-// var fighter2 = fighter({name: 'Kayn', attack: 50, hp: 300});
-// var fighter3 = fighter({name: 'Bill', attack: 40, hp: 100});
+ var fighter1 = fighter({name: 'John', attack: 100, hp: 100});
+ // var fighter2 = fighter({name: 'Kayn', attack: 50, hp: 300});
+ //var fighter3 = fighter({name: 'Bill', attack: 40, hp: 100}); 
 
 // fighter1.fight(fighter2); // true, fighter 1 make damage to fighter 2
 // fighter1.fight(fighter3); // true, fighter 1 make damage to fighter 3
@@ -52,7 +71,7 @@ function showResult(fighter) {
 //  * - Combat stats: { wins: 1, loses: 0 }
 //  * - Properties: { name: 'John', attack: 100, hp: 100 }
 //  */
-// showResult(fighter1);
+ showResult(fighter1);
 
 // /** Fighter Kayn
 //  * - Combat stats: { wins: 0, loses: 0 }
