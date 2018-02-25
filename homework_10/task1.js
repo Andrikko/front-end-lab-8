@@ -1,15 +1,15 @@
 function debounce(func, timing) {
-  let time;
+    let time;
+    return function () {
+        time = setTimeout(done, timing);
 
-  return function() {
-      time = setTimeout(done, timing);
-
-      function done() {
-          func.apply(this, arguments)
-      }
-
-      
-  }
+        function done() {
+            func.apply(this, arguments);
+        }
+        if (time) {
+            clearTimeout(time);
+        }
+    }
 }
 
 // Example
@@ -17,13 +17,13 @@ function debounce(func, timing) {
 let iterator = 0;
 
 function increaseIteratorBy1() {
-  iterator++;
+    iterator++;
 
-  printIteratorValue();
+    printIteratorValue();
 }
 
 function printIteratorValue() {
-  console.log('Iterator value ', iterator);
+    console.log('Iterator value ', iterator);
 }
 
 var increaseIterator = debounce(increaseIteratorBy1, 1000);
