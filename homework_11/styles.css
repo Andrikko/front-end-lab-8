@@ -1,0 +1,17 @@
+body{
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+ul li:hover{
+    background-color: gainsboro;
+    cursor: pointer;
+}
+
+.folder i{color: orange;}
+.file i{color: darkgray;}
+
+.emptyFolder{display: none;}
+.emptyFolder:hover{background-color: white;}
+
+.close{display: none;}
