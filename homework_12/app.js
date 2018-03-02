@@ -1,96 +1,131 @@
-var root = document.getElementById('root');
+// Your code goes here
+var root = document.getElementById("root");
 
-function createPage(){
-    let main = document.createElement('div');
-    main.setAttribute('class', 'main');
-let h2 = document.createElement('h2');
-    h2.innerHTML = 'Most popular tanks';
-    main.appendChild(h2);
-    
-let content = document.createElement('div');
-    content.setAttribute('class', 'content');
-    main.appendChild(content);
-    
-tanks.forEach(function(tanks){
-    let box = document.createElement('a');
-    box.setAttribute('href', '#'+tanks.model);
-    box.setAttribute('class', 'box');    
-    let image = document.createElement('img');
-        image.setAttribute('src', tanks.preview);
-        box.appendChild(image);
-    let titleD = document.createElement('div');
-    titleD.setAttribute('class', 'title');
-    box.appendChild(titleD);    
-    let country = document.createElement('img');
-        country.setAttribute('src', tanks.country_image);
-        country.setAttribute('title', tanks.country);
-        titleD.appendChild(country);
-    let moreDetails = document.createElement('div');
-        moreDetails.setAttribute('class', 'details');
-        titleD.appendChild(moreDetails);    
-    let model = document.createElement('p');
+function main_page() {
+    var main_container = document.createElement("div");
+    main_container.setAttribute("class", "main");
+
+    var h2 = document.createElement("h2");
+    main_container.appendChild(h2);
+    h2.innerHTML = "Most popular tanks";
+
+    var grid_container = document.createElement("div");
+    grid_container.className = "grid_container";
+    main_container.appendChild(grid_container);
+
+    tanks.forEach(function (tanks) {
+        var grid_box = document.createElement("a");
+        grid_box.href = "#" + tanks.model;
+        grid_box.className = "grid_box";
+        grid_container.appendChild(grid_box);
+
+        var tank_img = document.createElement("img");
+        tank_img.src = tanks.preview;
+        grid_box.appendChild(tank_img);
+
+        var title_div = document.createElement("div");
+        title_div.className = "title_div";
+        grid_box.appendChild(title_div);
+
+        var flag_img = document.createElement("img");
+        flag_img.src = tanks.country_image;
+        flag_img.title = tanks.country;
+        title_div.appendChild(flag_img);
+
+        var level = document.createElement("h4");
+        level.innerHTML = tanks.level;
+        title_div.appendChild(level);
+
+        var model = document.createElement("p");
         model.innerHTML = tanks.model;
         model.title = tanks.model;
-        titleD.appendChild(model);
-    let level = document.createElement('h3');
-        level.innerHTML = tanks.level;
-        titleD.appendChild(level);
-    });
-    
-    return main;
+        title_div.appendChild(model);
+
+        var details = document.createElement("div");
+        details.className = "details";
+        title_div.append(details);
+    })
+    return main_container;
 };
 
-function getDetails(tank){
-    let details = tank.details;
-    let detailsTitle = document.createElement('div');
-    detailsTitle.setAttribute('class','details');    
-let detailsCountry = document.createElement('img');
-detailsCountry.setAttribute('src',tank.country_image);
-detailsCountry.setAttribute('title',tank.country);
-detailsTitle.appendChild(detailsCountry);
+function tank_details(tank) {
+    var details = tank.details;
+    var details_title = document.createElement("div");
+    details_title.className = "details";
+
+    var details_flag = document.createElement("img");
+    details_flag.src = tank.country_image;
+    details_flag.title = tank.country;
+    details_title.appendChild(details_flag);
+
+    var details_name = document.createElement("h2");
+    details_name.innerHTML = "<span class='forSpan'>" + tank.model + "</span>" + " (level " + tank.level + ")";
+    details_title.appendChild(details_name);
+
+    var details_preview = document.createElement("h4");
+    details_preview.innerHTML = "Preview";
+
+    var details_tank_img = document.createElement("img");
+    details_tank_img.src = tank.preview;
+
+    var details_a = document.createElement("a");
+    details_a.href = "#";
+    details_a.innerText = "Back to list view";
     
-    let detailsName = document.createElement('h2');
-    detailsName.innerHTML ='<span class="forSpan"' + tank.model + "</span>"+' level ' + tank.level;
-detailsTitle.appendChild(detailsName);    
-let preview = document.createElement('h4');
-preview.innerHTML = 'Preview';
-    let detailsImg = document.createElement('img');
-    detailsImg.setAttribute('src',tank.preview);
-    
-let detailsLink = document.createElement('a');
-detailsLink.setAttribute('href', '#');
-detailsLink.innerHTML = 'Back to list view';
-    detailsLink.addEventListener('click', function(){
-        location.hash ='';
-        root.innerHTML = '';
-        root.appendChild(createPage());
+    details_a.addEventListener('click',function(){
+        location.hash = "";
+        root.innerHTML = "";
+        root.appendChild(main_page());
     });
-    let detailsChar = document.createElement('h4');
-    detailsChar.innerHTML = 'Characteristic';
-    let detailsTable = document.createElement('table');
-    for(let i in details){
-    let row = detailsTable.insertRow(i);
-    let cell - row.insertCell(0);
-    let text = document.createTextNode(i);
-    cell.appendChild(text);
-    let newCell = row.insertCell(1);
-    let newText = document.createTextNode(details[i]);
-    newCell.appendChild(newText);
+
+    var details_h4 = document.createElement("h4");
+    details_h4.innerHTML = "Characteristic";
+
+    var details_table = document.createElement("table");
+
+    for (let i in details) {
+        var row = details_table.insertRow(i);
+        var cell = row.insertCell(0);
+        var text = document.createTextNode(i);
+        cell.appendChild(text);
+        let newCell = row.insertCell(1);
+        let newText = document.createTextNode(details[i]);
+        newCell.appendChild(newText);
+    };
+
+    var all_details = document.createElement("div");
+    var details_left = document.createElement("div");
+    var details_right = document.createElement("div");
+
+    details_left.appendChild(details_title);
+    details_left.appendChild(details_preview);
+    details_left.appendChild(details_tank_img);
+    details_left.appendChild(details_a);
+
+    details_right.appendChild(details_h4);
+    details_right.appendChild(details_table);
+
+    all_details.appendChild(details_left);
+    all_details.appendChild(details_right);
+
+    details_left.className = "details_left";
+    details_right.className = "details_right";
+    all_details.className = "all_details";
+    return (all_details);
+}
+
+function reload() {
+    var link = location.hash;
+    full_link = link.replace(/\s/ig, '-');
+    for (let i in tanks) {
+        var link_test = "#" + tanks[i].model;
+        if (link === link_test) {
+            root.innerHTML = "";
+            root.appendChild(tank_details(tanks[i]));
+            location.hash = full_link;
+        }
     }
-let fullDetails = document.createElement('div');
-let detailsLeft = document.createElement('div');
-let detailsRight = document.createElement('div');
-detailsLeft.appendChild(detailsTitle);
-detailsLeft.appendChild(preview);
-detailsLeft.appendChild(detailsImg);
-detailsLeft.appendChild(detailsLink);
-detailsRight.appendChild(detailsChar);
-detailsRight.appendChild(detailsTable);
-detailsLeft.setAttribute('class','detailsLeft');
-detailsRight.setAttribute('class','detailsRight');
-fullDetails.setAttribute('class', 'fullDetails');
-fullDetails.appendChild(detailsLeft);
-fullDetails.appendChild(detailsRight);
-    
-    return fullDetails;
 };
+
+window.onhashchange = reload;
+root.appendChild(main_page());
